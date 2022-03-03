@@ -1,0 +1,43 @@
+﻿@model DRDO_ResourseManagementSystem.ViewModel.BookViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.RoomName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.RoomDescription)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomDescription)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.RoomImg)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Html.DisplayFor(model => model.Room.RoomImg)" class="card-img-top" style="border: 2px solid #000; width: 100%; max-width: 400px; height: auto;" alt="@Html.DisplayFor(model => model.Room.RoomImg)">
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Room.Roomcapacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.Roomcapacity)
+        </dd>
+    </dl>
+</div>
+    <tbody>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

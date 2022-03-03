@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DRDO_ResourseManagementSystem.Models.Book>
+@{
+    ViewData["Title"] = "Book | DRDO RMS";
+}
+
+<h1>Bookings</h1>
+     <div id="calendar" class="float-child"></div>
+
+
+<link href="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.10.1/main.css" rel="stylesheet" />
+ 
+@section Scripts{
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.10.1/main.js"></script>
+ 
+    <script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var calendarEl = document.getElementById('calendar');
+
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    timeZone: 'UTC',
+    initialView: 'dayGridMonth',
+    aspectRatio: 1.5,
+    editable: false,
+    resourceAreaHeaderContent: 'Room ID',
+    resources:[
+        {
+          id: '1',
+          title: '1'
+        },
+    ],
+    events: [
+        @foreach (var item in Model){
+            <text>
+            {
+                id: '@Html.DisplayFor(modelItem => item.RoomID)',
+                resourceId: '@Html.DisplayFor(modelItem => item.RoomID)',
+                title: '@Html.DisplayFor(modelItem => item.UserName)',
+                start: '@Html.DisplayFor(modelItem => item.BookFor, "{0:dd/MM/yyyy}")T\@Html.DisplayFor(modelItem => item.BookFor, "{0:hh:mm:ss}")',
+                end: '@Html.DisplayFor(modelItem => item.EndTime, "{0:dd/MM/yyyy}")T\@Html.DisplayFor(modelItem => item.EndTime, "{0:hh:mm:ss}")'
+            }
+            </text>
+        }
+    ]
+  });
+  calendar.render();
+});
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

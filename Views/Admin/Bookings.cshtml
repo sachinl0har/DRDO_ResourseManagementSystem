@@ -1,0 +1,26 @@
+﻿@model IEnumerable<DRDO_ResourseManagementSystem.Models.Book>
+
+@{
+    ViewData["Title"] = "Admin | DRDO RMS";
+}
+
+<h1>Admin Panel Bookings</h1>
+
+    <tbody>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach (var item in Model)
+{
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Name : @Html.DisplayFor(modelItem => item.UserName)</h5>
+        <p class="card-text">Room ID : @Html.DisplayFor(modelItem => item.RoomID) <br />Email : @Html.DisplayFor(modelItem => item.UserEmail) <br />Booking Start Time : @Html.DisplayFor(modelItem => item.BookFor) <br />Booking End Time : @Html.DisplayFor(modelItem => item.EndTime) <br />Is Full Day : @Html.DisplayFor(modelItem => item.IsFullDay) <br />Booking Status : @Html.DisplayFor(modelItem => item.IsBook)</p>
+        <a class="btn btn-dark" asp-action="Allot" asp-route-id="@item.ID">Allot</a>
+        <a class="btn btn-dark" asp-action="BookingsDelete" asp-route-id="@item.ID">Delete</a>
+      </div>
+    </div>
+  </div>
+}
+</div>
+    </tbody>

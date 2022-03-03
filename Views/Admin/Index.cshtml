@@ -1,0 +1,31 @@
+﻿@model IEnumerable<DRDO_ResourseManagementSystem.Models.Room>
+
+@{
+    ViewData["Title"] = "Admin | DRDO RMS";
+}
+
+<h1>Admin Panel</h1>
+
+<p>
+    <a asp-action="Create">Add New Department</a>
+</p>
+    <tbody>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+@foreach (var item in Model)
+{
+  <div class="col">
+    <div class="card">
+      <img src="@Html.DisplayFor(modelItem => item.RoomImg)" class="card-img-top" alt="@Html.DisplayFor(modelItem => item.RoomImg)">
+      <div class="card-body">
+        <h5 class="card-title">Name : @Html.DisplayFor(modelItem => item.RoomName)</h5>
+        <p class="card-text">Description : @Html.DisplayFor(modelItem => item.RoomDescription) <br />Room Capacity : @Html.DisplayFor(modelItem => item.Roomcapacity)</p>
+        <a class="btn btn-dark" asp-action="Edit" asp-route-id="@item.ID">Edit</a>
+        <a class="btn btn-dark" asp-action="Details" asp-route-id="@item.ID">Details</a>
+        <a class="btn btn-dark" asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+      </div>
+    </div>
+  </div>
+}
+</div>
+    </tbody>

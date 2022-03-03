@@ -1,0 +1,49 @@
+﻿@model DRDO_ResourseManagementSystem.Models.Book
+@{
+    ViewData["Title"] = "Book | DRDO RMS";
+    var book = ViewData.Model;
+}
+
+<h1>Book</h1>
+
+    <div class="col-md-4 float-child">
+        <form asp-action="Book">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RoomID" class="control-label"></label>
+                <input asp-for="RoomID" value="@ViewBag.RoomID" class="form-control" disabled />
+                <span asp-validation-for="RoomID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName" class="control-label"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserEmail" class="control-label"></label>
+                <input asp-for="UserEmail" class="form-control" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BookFor" class="control-label"></label>
+                <input asp-for="BookFor" type="datetime-local" class="form-control" />
+                <span asp-validation-for="BookFor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input asp-for="EndTime" type="datetime-local" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <!--<div class="form-group">
+                <label asp-for="IsFullDay" class="control-label"></label>
+                <input asp-for="IsFullDay" type="checkbox" class="form-control" />
+                <span asp-validation-for="IsFullDay" class="text-danger"></span>
+            </div>-->
+            <div class="form-group">
+                <input type="submit" value="Book" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
